@@ -1163,10 +1163,114 @@ elif nav == "Duyệt tin (QTV)":
                             st.error(f"Lỗi khi từ chối: {e}")
 
 # ========================= AUTHOR PAGE ============================
+# ------------------ AUTHOR PAGE ------------------
 elif nav == "Thông tin tác giả":
     st.header("👤 Nhóm tác giả dự án")
-    st.write("""
-    **Hồ Thị Quỳnh Như**  
-    **Nguyễn Văn Cường**  
-    **Nguyễn Thị Tuyết Anh**  
-    """)
+    
+
+    def render_team_and_feedback():
+        st.title("Nhóm phát triển & Phản hồi")
+
+        st.markdown(
+            """
+            Trang này giới thiệu **nhóm phát triển hệ thống gợi ý giá & tìm kiếm xe máy cũ**,  
+            đồng thời là nơi bạn có thể gửi **góp ý, báo lỗi hoặc đề xuất tính năng mới**.
+            """
+        )
+
+        st.subheader("Nhóm tác giả")
+
+        # ====== DANH SÁCH THÀNH VIÊN (TUỲ CHỈNH LẠI CHO PHÙ HỢP) ======
+        team_members = [
+            {
+                "name": "Hồ Thị Quỳnh Như",
+                "role": "Xây dựng mô hình định giá & gợi ý xe tương tự",
+                "image_path": "imgs/cQuynh.jpg",  # Thay bằng đường dẫn thật hoặc URL
+                "desc": "Phụ trách xây dựng và tối ưu các mô hình Machine Learning cho dự đoán giá và gợi ý xe."
+            },
+            {
+                "name": "Nguyễn Văn Cường",
+                "role": "Xây dựng mô hình định giá & gợi ý xe tương tự",
+                "image_path": "imgs/aCuong.jpg",
+                "desc": "Chịu trách nhiệm pipeline dữ liệu, tích hợp mô hình với hệ thống backend."
+            },
+            {
+                "name": "Nguyễn Thị Tuyết Anh",
+                "role": "Xây dựng mô hình định giá & gợi ý xe tương tự",
+                "image_path": "imgs/tanh.jpg",
+                "desc": "Thiết kế trải nghiệm người dùng, tối ưu giao diện tìm kiếm và xem xe."
+            },
+        ]
+
+        for member in team_members:
+            with st.container():
+                col1, col2 = st.columns([1, 3])
+                with col1:
+                    # Nếu chưa có ảnh, có thể dùng một placeholder mặc định
+                    try:
+                        st.image(member["image_path"], width=120)
+                    except Exception:
+                        st.write("🧑‍💻")  # Icon thay tạm cho ảnh
+                with col2:
+                    st.markdown(f"**{member['name']}**")
+                    st.markdown(f"*{member['role']}*")
+                    st.markdown(member["desc"])
+            st.markdown("---")
+
+        # ====== MÔ TẢ NGẮN VỀ PHƯƠNG PHÁP ======
+        st.subheader("Mô tả ngắn về phương pháp")
+
+        st.markdown(
+            """
+            Hệ thống sử dụng dữ liệu lịch sử các tin đăng xe máy cũ (hãng xe, dòng xe, năm sản xuất,  
+            số km đã chạy, khu vực, mức giá, v.v.) để xây dựng các mô hình học máy:
+
+            - **Mô hình gợi ý xe tương tự** (cosine similarity):
+Tìm các xe có đặc điểm gần giống nhau để người dùng dễ so sánh và tham khảo mức giá.
+            - **Phân cụm (clustering) xe**:  
+            Nhóm các xe vào những phân khúc khác nhau (xe tay ga phổ thông, xe số giá rẻ, xe phân khối lớn, v.v.),  
+            từ đó dùng **mô hình dự đoán giá riêng theo từng cụm** nhằm tăng độ chính xác.
+
+            Các mô hình được đánh giá bằng các chỉ số như MAE, RMSE, R² để đảm bảo **độ ổn định và hợp lý**.
+            """
+        )
+
+        # ====== FORM PHẢN HỒI ======
+        st.subheader("Góp ý & phản hồi")
+
+        with st.form("feedback_form"):
+            user_role = st.radio(
+                "Bạn đang sử dụng hệ thống với vai trò:",
+                ["Người tìm xe", "Người đăng tin", "Quản trị viên", "Khác"]
+            )
+
+            experience_score = st.slider(
+                "Đánh giá trải nghiệm tổng thể của bạn với hệ thống",
+                min_value=1, max_value=5, value=4,
+                help="1: Rất tệ – 5: Rất tốt"
+            )
+
+            feedback_type = st.selectbox(
+                "Loại phản hồi",
+                ["Góp ý cải thiện", "Báo lỗi", "Báo tin rác / không hợp lý", "Khác"]
+            )
+
+            feedback_text = st.text_area(
+                "Nội dung phản hồi",
+                placeholder="Nhập góp ý chi tiết, ví dụ: gợi ý giá chưa hợp lý cho một số dòng xe, giao diện khó dùng ở bước nào đó..."
+            )
+
+            contact = st.text_input(
+                "Email / cách liên hệ (không bắt buộc)",
+                placeholder="Nhập email nếu bạn muốn chúng tôi liên hệ lại"
+            )
+
+            submitted = st.form_submit_button("Gửi phản hồi")
+
+            if submitted:
+                # Ở đây bạn có thể thêm logic lưu phản hồi vào file / database
+                # ví dụ: ghi vào CSV, gửi vào Google Sheet, DB, v.v.
+                st.success("Cảm ơn bạn đã gửi phản hồi! Nhóm phát triển sẽ xem xét trong thời gian sớm nhất.")
+
+    
+    render_team_and_feedback()
