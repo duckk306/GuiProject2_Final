@@ -1,0 +1,33 @@
+E_Xuất_xứ_Mỹ
+E_Dòng_xe_Wave
+E_Loại_xe_Tay Ga
+E_Dòng_xe_Sh
+E_Xuất_xứ_Đài Loan
+E_Dòng_xe_Attila
+E_Thương_hiệu_Sachs
+age
+E_Xuất_xứ_Việt Nam
+E_Thương_hiệu_Sym
+E_Thương_hiệu_Kymco
+E_Dòng_xe_Sr 125
+E_Dòng_xe_Sirius
+E_Dòng_xe_Air Blade
+E_Dung_tích_xe_50 - 100 Cc
+E_Thương_hiệu_Kawasaki
+E_Xuất_xứ_Đức
+E_Loại_xe_Xe Số
+E_Dòng_xe_48
+E_Dung_tích_xe_Trên 175 Cc
+E_Thương_hiệu_Harley Davidson
+E_Thương_hiệu_Bmw
+cc_numeric
+E_Dòng_xe_R Nine T
+E_Dòng_xe_Madass
+E_Thương_hiệu_Piaggio
+E_Thương_hiệu_Yamaha
+price_segment_code
+E_Thương_hiệu_Honda
+E_Dòng_xe_Cub
+E_Dung_tích_xe_Dưới 50 Cc
+E_Dòng_xe_Exciter
+E_Dòng_xe_Sportster

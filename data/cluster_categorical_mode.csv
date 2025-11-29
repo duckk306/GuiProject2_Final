@@ -1,0 +1,4 @@
+﻿cluster_id,Thương_hiệu,Dòng_xe,Loại_xe,Dung_tích_xe,Xuất_xứ,Phân_khúc_giá,is_moi,is_do_xe,is_su_dung_nhieu,is_bao_duong,is_do_ben,is_phap_ly
+0,Honda,Sh,Tay Ga,100 - 175 Cc,Việt Nam,Cận Cao Cấp,0,0,0,0,0,0
+1,Honda,Air Blade,Tay Ga,100 - 175 Cc,Việt Nam,Phổ Thông,0,0,0,0,0,0
+2,Honda,Dòng Khác,Xe Số,50 - 100 Cc,Nhật Bản,Phổ Thông,0,0,0,0,0,0
