@@ -147,7 +147,7 @@ def load_models():
     )
 
 # ---- PAGE CONFIG ----
-st.image("mua-ban-xe-may-cu-0.png", use_container_width=True)
+st.image("mua-ban-xe-may-cu-0.png", use_container_width=True, width=550)
 st.set_page_config(
     page_title="Hệ thống gợi ý & dự đoán giá xe máy cũ",
     page_icon="🏍️",
